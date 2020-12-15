@@ -12,7 +12,10 @@ namespace PairProgramming
         {
                         /* 3. Once the user has successsfully given their account and pin numbers, protmpt the user with a menu and ask them if they want to do a deposit, a withdrawal, or exit the application.*/
             bool repeat = true;
-            int accTotal = 0;
+            int cashTotal = 0;
+            int bitTotal = 0;
+            int etherTotal = 0;
+            int liteTotal = 0;
             /*
              * ADDITIONAL Optional Features:
                     -Keep a running total of the account balance, assuming that the account starts at $0.
@@ -22,21 +25,56 @@ namespace PairProgramming
             for (int i = 0; i < 10; i++)
                 do
                 {
-                    Console.Write("\nD)Deposit\nW)Withdrawal\nA)Account Balance\nX)Exit\n");
+                    Console.Write("\nD)Deposit\nW)Withdrawl\nP)Purchase\nS)Sell\nA)Account Balance\nT)TransferX)Exit\n");
                     string userChoice = Console.ReadLine().ToUpper();
 
                     Console.Clear();
                     switch (userChoice)
                     {
-                        /*4.If they choose to do a deposit, ask them for the amount to deposit, and display the amount deposited.
-                            a) ex. "$500.00 has been deposited into account number 12345"*/
-                        case "D":
-                        case "DEPOSIT":
+                        case "P":
+                        case "PURCHASE":
                             Console.Write("Enter the amount you wish to DEPOSIT: ");
                             int userDeposit = Convert.ToInt32(Console.ReadLine());
                             Console.Write("You have chosen to deposit: {0:c} into account number 85345682.", userDeposit);
                             accTotal = accTotal + userDeposit;
                             Console.Write("\nYour account balance is Currently: {0:c}", accTotal);
+                            break;
+
+                        case "S":
+                        case "SELL":
+                            Console.Write("Enter the amount you wish to DEPOSIT: ");
+                            int userDeposit = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("You have chosen to deposit: {0:c} into account number 85345682.", userDeposit);
+                            accTotal = accTotal + userDeposit;
+                            Console.Write("\nYour account balance is Currently: {0:c}", accTotal);
+                            break;
+
+                        case "T":
+                        case "TRANSFER":
+                            Console.Write("Enter the amount you wish to DEPOSIT: ");
+                            int userDeposit = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("You have chosen to deposit: {0:c} into account number 85345682.", userDeposit);
+                            accTotal = accTotal + userDeposit;
+                            Console.Write("\nYour account balance is Currently: {0:c}", accTotal);
+                            break;
+
+                        /*4.If they choose to do a deposit, ask them for the amount to deposit, and display the amount deposited.
+                            a) ex. "$500.00 has been deposited into account number 12345"*/
+                        case "D":
+                        case "DEPOSIT":
+                            Console.Write("\nC)Cash\nB)Bitcoin\nE)Etherium\nL)Litecoin\nX)Exit\n");
+                            string userChoice = Console.ReadLine().ToUpper();
+
+                            Console.Clear();
+                            switch (userChoice)
+                            {
+                                case "C":
+                            }
+                            Console.Write("Enter the amount you wish to DEPOSIT: ");
+                            int userDeposit = Convert.ToInt32(Console.ReadLine());
+                            Console.Write("You have chosen to deposit: {0:c} into account number 85345682.", userDeposit);
+                            cashTotal = cashTotal + userDeposit;
+                            Console.Write("\nYour account balance is Currently: {0:c}", cashTotal);
                             break;
                         /* 5. If they choose to withdraw money, ask them for the amount to withdraw and display the amount being withdrawn.
                              a) ex. "$500.00 has been withdrawn from from the following account:#12345"*/
@@ -44,7 +82,7 @@ namespace PairProgramming
                         case "WITHDRAWAL":
                             Console.Write("Enter the amount you wish to WITHDRAWAL: ");
                             int userWithdrawal = Convert.ToInt32(Console.ReadLine());
-                            accTotal = accTotal - userWithdrawal;
+                            cashTotal = accTotal - userWithdrawal;
                             Console.Write("\nYou have chosen to withdrawal: {0:c} from account number 85345682.", userWithdrawal);
                             if (accTotal >= userWithdrawal)
                             {
