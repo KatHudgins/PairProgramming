@@ -69,32 +69,160 @@ namespace PairProgramming
                             switch (userChoice)
                             {
                                 case "C":
+                                case "CASH":
+                                    Console.Write("Enter the amount you wish to DEPOSIT: ");
+                                    int userDeposit = Convert.ToInt32(Console.ReadLine());
+                                    Console.Write("You have chosen to deposit: {0:c} into account number 85345682.", userDeposit);
+                                    cashTotal = cashTotal + userDeposit;
+                                    Console.Write("\nYour account balance is Currently: {0:c}", cashTotal);
+                                    break;
+                                case "B":
+                                case "BITCOIN":
+                                    Console.Write("Enter the amount you wish to DEPOSIT: ");
+                                    int userDeposit = Convert.ToInt32(Console.ReadLine());
+                                    Console.Write("You have chosen to deposit: {0:c} into account number 85345682.", userDeposit);
+                                    bitTotal = bitTotal + userDeposit;
+                                    Console.Write("\nYour account balance is Currently: {0:c}", bitTotal);
+                                    break;
+                                case "E":
+                                case "ETHERIUM":
+                                    Console.Write("Enter the amount you wish to DEPOSIT: ");
+                                    int userDeposit = Convert.ToInt32(Console.ReadLine());
+                                    Console.Write("You have chosen to deposit: {0:c} into account number 85345682.", userDeposit);
+                                    etherTotal = etherTotal + userDeposit;
+                                    Console.Write("\nYour account balance is Currently: {0:c}", etherTotal);
+                                    break;
+                                case "L":
+                                case "LITECOIN":
+                                    Console.Write("Enter the amount you wish to DEPOSIT: ");
+                                    int userDeposit = Convert.ToInt32(Console.ReadLine());
+                                    Console.Write("You have chosen to deposit: {0:c} into account number 85345682.", userDeposit);
+                                    liteTotal = liteTotal + userDeposit;
+                                    Console.Write("\nYour account balance is Currently: {0:c}", liteTotal);
+                                    break;
+                                case "X":
+                                case "EXIT":
+                                    Console.Write("\nI hope I was able to satisfy your ATM needs. See ya next time around!\n");
+                                    repeat = false;
+                                    return;
+                                default:
+                                    Console.Write("\nThere seems to be a miscommunication, try another attempt\n");
+                                    break;
+
                             }
-                            Console.Write("Enter the amount you wish to DEPOSIT: ");
-                            int userDeposit = Convert.ToInt32(Console.ReadLine());
-                            Console.Write("You have chosen to deposit: {0:c} into account number 85345682.", userDeposit);
-                            cashTotal = cashTotal + userDeposit;
-                            Console.Write("\nYour account balance is Currently: {0:c}", cashTotal);
                             break;
                         /* 5. If they choose to withdraw money, ask them for the amount to withdraw and display the amount being withdrawn.
                              a) ex. "$500.00 has been withdrawn from from the following account:#12345"*/
                         case "W":
                         case "WITHDRAWAL":
-                            Console.Write("Enter the amount you wish to WITHDRAWAL: ");
-                            int userWithdrawal = Convert.ToInt32(Console.ReadLine());
-                            cashTotal = accTotal - userWithdrawal;
-                            Console.Write("\nYou have chosen to withdrawal: {0:c} from account number 85345682.", userWithdrawal);
-                            if (accTotal >= userWithdrawal)
+                            Console.Write("\nC)Cash\nB)Bitcoin\nE)Etherium\nL)Litecoin\nX)Exit\n");
+                            string userChoice = Console.ReadLine().ToUpper();
+
+                            Console.Clear();
+                            switch (userChoice)
                             {
-                                Console.Write("\nPlease collect desired cash back: {0:c}", userWithdrawal);
-                                Console.Write("\nYou're new balance is: {0:c}", accTotal);
+                                case "C":
+                                case "CASH":
+                                    Console.Write("Enter the amount you wish to WITHDRAWAL: ");
+                                    int userWithdrawal = Convert.ToInt32(Console.ReadLine());
+                                    cashTotal = cashTotal - userWithdrawal;
+                                    Console.Write("\nYou have chosen to withdrawal: {0:c} from account number 85345682.", userWithdrawal);
+                                    if (cashTotal >= userWithdrawal)
+                                    {
+                                        Console.Write("\nPlease collect desired cash back: {0:c}", userWithdrawal);
+                                        Console.Write("\nYou're new balance is: {0:c}", cashTotal);
+                                    }
+                                    else
+                                        Console.Write("\nYour account does not have sufficient balance");
+                                    break;
+                                case "B":
+                                case "BITCOIN":
+                                    Console.Write("Enter the amount you wish to WITHDRAWAL: ");
+                                    int userWithdrawal = Convert.ToInt32(Console.ReadLine());
+                                    bitTotal = bitTotal - userWithdrawal;
+                                    Console.Write("\nYou have chosen to withdrawal: {0:c} from account number 85345682.", userWithdrawal);
+                                    if (bitTotal >= userWithdrawal)
+                                    {
+                                        Console.Write("\nPlease collect desired cash back: {0:c}", userWithdrawal);
+                                        Console.Write("\nYou're new balance is: {0:c}", bitTotal);
+                                    }
+                                    else
+                                        Console.Write("\nYour account does not have sufficient balance");
+                                    break;
+                                case "E":
+                                case "ETHERIUM":
+                                    Console.Write("Enter the amount you wish to WITHDRAWAL: ");
+                                    int userWithdrawal = Convert.ToInt32(Console.ReadLine());
+                                    etherTotal = etherTotal - userWithdrawal;
+                                    Console.Write("\nYou have chosen to withdrawal: {0:c} from account number 85345682.", userWithdrawal);
+                                    if (etherTotal >= userWithdrawal)
+                                    {
+                                        Console.Write("\nPlease collect desired cash back: {0:c}", userWithdrawal);
+                                        Console.Write("\nYou're new balance is: {0:c}", etherTotal);
+                                    }
+                                    else
+                                        Console.Write("\nYour account does not have sufficient balance");
+                                    break;
+                                case "L":
+                                case "LITECOIN":
+                                    Console.Write("Enter the amount you wish to WITHDRAWAL: ");
+                                    int userWithdrawal = Convert.ToInt32(Console.ReadLine());
+                                    liteTotal = liteTotal - userWithdrawal;
+                                    Console.Write("\nYou have chosen to withdrawal: {0:c} from account number 85345682.", userWithdrawal);
+                                    if (liteTotal >= userWithdrawal)
+                                    {
+                                        Console.Write("\nPlease collect desired cash back: {0:c}", userWithdrawal);
+                                        Console.Write("\nYou're new balance is: {0:c}", liteTotal);
+                                    }
+                                    else
+                                        Console.Write("\nYour account does not have sufficient balance");
+                                    break;
+                                case "X":
+                                case "EXIT":
+                                    Console.Write("\nI hope I was able to satisfy your ATM needs. See ya next time around!\n");
+                                    repeat = false;
+                                    return;
+                                default:
+                                    Console.Write("\nThere seems to be a miscommunication, try another attempt\n");
+                                    break;
+
                             }
-                            else
-                                Console.Write("\nYour account does not have sufficient balance");
                             break;
+
                         case "A":
                         case "ACCOUNT BALANCE":
-                            Console.Write("Your account balance is Currently: {0:c}", accTotal);
+                            Console.Write("\nC)Cash\nB)Bitcoin\nE)Etherium\nL)Litecoin\nX)Exit\n");
+                            string userChoice = Console.ReadLine().ToUpper();
+
+                            Console.Clear();
+                            switch (userChoice)
+                            {
+                                case "C":
+                                case "CASH":
+                                    Console.Write("Your account balance is Currently: {0:c}", cashTotal);
+                                    break;
+                                case "B":
+                                case "BITCOIN":
+                                    Console.Write("Your account balance is Currently: {0:c}", bitTotal);
+                                    break;
+                                case "E":
+                                case "ETHERIUM":
+                                    Console.Write("Your account balance is Currently: {0:c}", etherTotal);
+                                    break;
+                                case "L":
+                                case "LITECOIN":
+                                    Console.Write("Your account balance is Currently: {0:c}", liteTotal);
+                                    break;
+                                /* 7. When the user exits the application, thank them for their business.*/
+                                case "X":
+                                case "EXIT":
+                                    Console.Write("\nI hope I was able to satisfy your ATM needs. See ya next time around!\n");
+                                    repeat = false;
+                                    return;
+                                default:
+                                    Console.Write("\nThere seems to be a miscommunication, try another attempt\n");
+                                    break;
+                            }
                             break;
                         /* 7. When the user exits the application, thank them for their business.*/
                         case "X":
@@ -106,10 +234,9 @@ namespace PairProgramming
                         default:
                             Console.Write("\nThere seems to be a miscommunication, try another attempt\n");
                             break;
-
-
                     }
                     /*6. After each transaction (deposit or withdrawl) ask the user if they want to do another deposit/withdrawal, or exit the application.*/
+
                 } while (repeat);
 
         }
